@@ -61,7 +61,7 @@ else
         hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
         {
             var msg = $"{(string.IsNullOrEmpty(user) ? "" : user + ": ")}{message}";
-            messages += msg + "\n";
+            messages += System.DateTime.Now.ToString("HH:mm:ss") + " =>" +  msg + "\n";
             JSRuntime.InvokeVoidAsync("scrollToBottom", TextAreaRef);
             StateHasChanged();
         });
